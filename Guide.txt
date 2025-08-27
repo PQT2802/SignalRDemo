@@ -1,0 +1,91 @@
+Chạy server:
+Xác nhận server chạy trên https://localhost:7048.
+Chạy client:
+
+Trong thư mục signalr-client-demo, chạy:
+npm i 
+Sau do:
+npm start
+
+Mở 3 tabs trình duyệt tại http://localhost:3000.
+
+Gán tên user:
+
+Tab 1: Nhập "User1" và click "Xác Nhận Tên".
+Tab 2: Nhập "User2".
+Tab 3: Nhập "User3".
+
+
+
+Kịch Bản Test
+
+Tất cả users join PublicGroup:
+
+Tab 1 (User1): Click "Tham gia Group Chung (PublicGroup)".
+
+Nhận thông báo: "[System] Bạn đã tham gia group PublicGroup."
+
+
+Tab 2 (User2): Click nút tương tự.
+
+Tab 1 và Tab 2 nhận: "[System] User [ID của User2] đã tham gia group PublicGroup."
+
+
+Tab 3 (User3): Click nút tương tự.
+
+Tất cả 3 tabs nhận: "[System] User [ID của User3] đã tham gia group PublicGroup."
+
+
+
+
+User1 và User2 join PrivateGroup:
+
+Tab 1 (User1): Click "Tham gia Group Private (PrivateGroup)".
+
+Chỉ Tab 1 nhận: "[System] Bạn đã tham gia group PrivateGroup."
+
+
+Tab 2 (User2): Click nút tương tự.
+
+Chỉ Tab 1 và Tab 2 nhận: "[System] User [ID của User2] đã tham gia group PrivateGroup."
+
+
+Tab 3 (User3): Không thấy nút join PrivateGroup.
+
+
+Gửi tin nhắn trong PublicGroup:
+
+Tab 1 (User1): Chọn "PublicGroup" từ dropdown, nhập "Xin chào tất cả!" và click "Gửi".
+
+Tất cả 3 tabs nhận: "User1: Xin chào tất cả!"
+Tab 1 nhận thêm: "[System] Bạn đã gửi tin nhắn đến group PublicGroup."
+
+
+Tab 3 (User3): Chọn "PublicGroup", nhập "Chào từ User3!" và gửi.
+
+Tất cả 3 tabs nhận: "User3: Chào từ User3!"
+
+
+
+
+Gửi tin nhắn trong PrivateGroup:
+
+Tab 1 (User1): Chọn "PrivateGroup", nhập "Tin nhắn private đây!" và click "Gửi".
+
+Chỉ Tab 1 và Tab 2 nhận: "User1: Tin nhắn private đây!"
+Tab 1 nhận thêm: "[System] Bạn đã gửi tin nhắn đến group PrivateGroup."
+Tab 3 (User3) không nhận được gì.
+
+
+Tab 2 (User2): Chọn "PrivateGroup", nhập "Chào User1!" và gửi.
+
+Chỉ Tab 1 và Tab 2 nhận: "User2: Chào User1!"
+
+
+Rời group:
+
+Tab 1 (User1): Click "Rời Group Private (PrivateGroup)".
+
+Chỉ Tab 2 nhận: "[System] User [ID của User1] đã rời group PrivateGroup."
+Tab 1 nhận: "[System] Bạn đã rời group PrivateGroup."
+Nút "Tham gia Group Private" xuất hiện lại trên Tab 1.
