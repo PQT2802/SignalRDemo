@@ -1,0 +1,22 @@
+# Ignore Visual Studio cache files
+.vs/
+*.vscode/
+*.user
+*.suo
+appsettings.json
+
+# Build results
+bin/
+obj/
+Debug/
+Release/
+
+# Temporary files
+*.log
+*.vsidx
+*.db
+*.cache
+
+# Ignore system files
+Thumbs.db
+*.DS_Store
